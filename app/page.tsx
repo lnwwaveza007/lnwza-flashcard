@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-5 flex-col">
+      <div className="flex h-screen justify-center items-center gap-5 flex-col">
         <h1 className="text-2xl">Lnwza Flashcard</h1>
         <form className="flex flex-col">
           <select name="subjects" id="subject" onChange={(e) => setSubject(e.target.value)}>
