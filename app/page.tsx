@@ -36,7 +36,9 @@ export default function Home() {
   }, []);
 
   return (
+    <Suspense>
     <>
+      
       <div className="flex h-screen justify-center items-center gap-5 flex-col">
         <h1 className="text-2xl">Lnwza Flashcard</h1>
         {/* <form className="flex flex-col">
@@ -59,9 +61,10 @@ export default function Home() {
           <p>Loading . . .</p>
         )}
       </div>
-      <Suspense>
+      
       {show && <FlashcardSelect data={data} sumbitFunc={onSumbit} />}
-      </Suspense>
+      
     </>
+    </Suspense>
   );
 }
