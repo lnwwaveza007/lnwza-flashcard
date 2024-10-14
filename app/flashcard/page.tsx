@@ -74,7 +74,7 @@ export default function Flashcard() {
         }
     }
 
-    return <Suspense><>
+    return <Suspense fallback={<p>Loading . . .</p>}><>
         <div className="h-screen flex justify-between items-center px-5 flex-col">
             <h1 className="flex justify-center text-3xl pt-5">Flashcard : {subjectParam}</h1>
             <div className="flex justify-between items-center flex-grow text-xl">

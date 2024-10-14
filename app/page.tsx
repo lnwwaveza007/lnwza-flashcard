@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Suspense>
+    <Suspense fallback={<p>Loading . . .</p>}>
     <>
       
       <div className="flex h-screen justify-center items-center gap-5 flex-col">
