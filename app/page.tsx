@@ -66,7 +66,7 @@ function HomeCotent() {
 }
 
 export default function Home() {
-  return     <Suspense fallback={<p>Loading . . .</p>}>
+  return (<Suspense fallback={<p>Loading . . .</p>}>
       <HomeCotent />
-  </Suspense>
+  </Suspense>)
 }
