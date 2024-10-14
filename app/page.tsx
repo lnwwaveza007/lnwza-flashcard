@@ -37,7 +37,6 @@ export default function Home() {
 
   return (
     <Suspense fallback={<p>Loading . . .</p>}>
-    <>
       
       <div className="flex h-screen justify-center items-center gap-5 flex-col">
         <h1 className="text-2xl">Lnwza Flashcard</h1>
@@ -64,7 +63,6 @@ export default function Home() {
       
       {show && <FlashcardSelect data={data} sumbitFunc={onSumbit} />}
       
-    </>
     </Suspense>
   );
 }
