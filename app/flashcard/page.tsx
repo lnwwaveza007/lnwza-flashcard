@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation"
 import React, { Suspense, useEffect, useState } from "react";
 
-export default function Flashcard() {
+function FlashcardContent() {
     const searchParam = useSearchParams();
     const subjectParam = searchParam.get('subject');
     const [data, setData] = useState([]);
@@ -74,7 +74,7 @@ export default function Flashcard() {
         }
     }
 
-    return <Suspense fallback={<p>Loading . . .</p>}><>
+    return <>
         <div className="h-screen flex justify-between items-center px-5 flex-col">
             <h1 className="flex justify-center text-3xl pt-5">Flashcard : {subjectParam}</h1>
             <div className="flex justify-between items-center flex-grow text-xl">
@@ -98,5 +98,12 @@ export default function Flashcard() {
             </div>
             <a href="/" className=" mb-5 text-black bg-white p-2 rounded-md">Go back to main menu</a>
         </div>
-    </></Suspense>
+    </>
+}
+
+export default function Flashcard() {
+
+    return <Suspense fallback={<p>Loading . . .</p>}>
+        <FlashcardContent />
+    </Suspense>
 }
