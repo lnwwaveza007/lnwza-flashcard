@@ -4,7 +4,7 @@ import FlashcardSelect from "@/components/flashcard_select";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Home() {
+function HomeCotent() {
   const router = useRouter();
   const show = useSearchParams().get("show");
   const [data, setData] = useState([]);
@@ -36,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Suspense fallback={<p>Loading . . .</p>}>
+
       
       <div className="flex h-screen justify-center items-center gap-5 flex-col">
         <h1 className="text-2xl">Lnwza Flashcard</h1>
@@ -63,6 +63,12 @@ export default function Home() {
       
       {show && <FlashcardSelect data={data} sumbitFunc={onSumbit} />}
       
-    </Suspense>
+
   );
+}
+
+export default function Home() {
+  return     <Suspense fallback={<p>Loading . . .</p>}>
+      <HomeCotent />
+  </Suspense>
 }
