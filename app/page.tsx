@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import FlashcardSelect from "@/components/flashcard_select";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";

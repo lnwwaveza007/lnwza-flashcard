@@ -1,11 +1,14 @@
+import * as dotenv from 'dotenv';
 import { google } from "googleapis";
-import keys from "../../key.json";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
+    dotenv.config();
+    const client_email = process.env.CLIENT_EMAIL;
+    const private_key = process.env.PRIVATE_KEY;
     try {
         const client = new google.auth.JWT(
-            keys.client_email, '', keys.private_key, ['https://www.googleapis.com/auth/spreadsheets']
+            client_email, '', private_key, ['https://www.googleapis.com/auth/spreadsheets']
         );
 
         await client.authorize();
@@ -21,8 +24,8 @@ export async function GET(req: NextRequest) {
         const response = await gsapi.spreadsheets.values.get(opt);
         return NextResponse.json(response.data, { status: 200 });
 
-    } catch (err: any) {
+    } catch (err: unknown) {
         console.error('Error during API request:', err);
-        return NextResponse.json({ error: 'Internal Server Error', details: err.message }, { status: 500 });
+        return NextResponse.json({ error: 'Internal Server Error', details: (err as Error).message }, { status: 500 });
     }
 }

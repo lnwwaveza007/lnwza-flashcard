@@ -31,10 +31,10 @@ export async function POST(reqest: Request) {
 
     const response = await gsapi.spreadsheets.values.get(opt);
     return NextResponse.json(response.data, { status: 200 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Error during API request:", err);
     return NextResponse.json(
-      { error: "Internal Server Error", details: err.message },
+      { error: "Internal Server Error", details: (err as Error).message },
       { status: 500 }
     );
   }

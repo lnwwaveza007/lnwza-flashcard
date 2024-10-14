@@ -1,6 +1,5 @@
 'use client'
 
-import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation"
 import React, { useEffect, useState } from "react";
 
