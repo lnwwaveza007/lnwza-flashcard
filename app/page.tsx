@@ -35,9 +35,7 @@ function HomeCotent() {
     getData();
   }, []);
 
-  return (
-
-      
+  return (<>      
       <div className="flex h-screen justify-center items-center gap-5 flex-col">
         <h1 className="text-2xl">Lnwza Flashcard</h1>
         {/* <form className="flex flex-col">
@@ -63,7 +61,7 @@ function HomeCotent() {
       
       {show && <FlashcardSelect data={data} sumbitFunc={onSumbit} />}
       
-
+      </>
   );
 }
 
