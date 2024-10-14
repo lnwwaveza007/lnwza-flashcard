@@ -1,19 +1,22 @@
 "use server";
 
-import keys from "../../../key.json";
+import * as dotenv from 'dotenv';
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
 export async function POST(reqest: Request) {
+  dotenv.config();
+  const client_email = process.env.CLIENT_EMAIL;
+  const private_key = process.env.PRIVATE_KEY;
     const data = reqest.formData();
     const subject = (await data).get("subject");
 
 
   try {
     const client = new google.auth.JWT(
-      keys.client_email,
+      client_email,
       "",
-      keys.private_key,
+      private_key,
       ["https://www.googleapis.com/auth/spreadsheets"]
     );
 
