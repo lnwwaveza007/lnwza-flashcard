@@ -15,14 +15,14 @@ export async function GET() {
 
         const gsapi = google.sheets({ version: 'v4', auth: client });
 
-        // CUSTOMIZATION FROM HERE
-        const opt = {
+        const spreadsheetInfo = await gsapi.spreadsheets.get({
             spreadsheetId: '1hVBh1myT9ADe0nLtxn64E0QKPYIP6K80qbgfzEywt3w',
-            range: 'SheetName!A2:A'
-        };
+            includeGridData: false
+        });
 
-        const response = await gsapi.spreadsheets.values.get(opt);
-        return NextResponse.json(response.data, { status: 200 });
+        const sheetNames = spreadsheetInfo.data.sheets?.map((sheet) => sheet.properties?.title);
+        
+        return NextResponse.json(sheetNames, { status: 200 });
 
     } catch (err: unknown) {
         console.error('Error during API request:', err);

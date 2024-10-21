@@ -17,9 +17,8 @@ function HomeCotent() {
       },
     });
     const data = await response.json();
-    const names = data.values;
 
-    setData(names);
+    setData(data);
   };
 
   const onSumbit = (subject: string) => {
