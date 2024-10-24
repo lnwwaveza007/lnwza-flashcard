@@ -17,7 +17,8 @@ function FlashcardContent() {
 
         const res = await fetch('/api/flashcard', {
             method: 'POST',
-            body: formData
+            body: formData,
+            cache: 'no-store'
         })
 
         const data = await res.json();
