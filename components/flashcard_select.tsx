@@ -4,7 +4,7 @@ interface flashcard_select_props {
     data: Array<string>;
     sumbitFunc: (subject: string) => void;
 }
-
+export const dynamic = 'force-dynamic';
 export default function flashcard_select(props: flashcard_select_props) {
 
   return (
