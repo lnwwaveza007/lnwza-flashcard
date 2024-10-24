@@ -4,8 +4,6 @@ import * as dotenv from 'dotenv';
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
-
 export async function POST(reqest: Request) {
   dotenv.config();
   const client_email = process.env.CLIENT_EMAIL;
