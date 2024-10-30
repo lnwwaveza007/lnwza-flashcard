@@ -10,12 +10,12 @@ function HomeCotent() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("/api/", {
+    const response = await fetch(`/api/?_=${new Date().getTime()}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      cache: 'no-store'
+      cache: 'no-cache'
     });
     const data = await response.json();
 
